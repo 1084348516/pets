@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物百科图鉴</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🐾 宠物百科图鉴</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="about.html" class="nav-link">关于</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h2 class="hero-title">探索神奇的宠物世界</h2>
+                <p class="hero-subtitle">了解不同宠物的习性、叫声和饲养要点</p>
+            </section>
+
+            <section class="pets-grid" id="petsGrid">
+                <!-- 宠物卡片将通过JavaScript动态生成 -->
+            </section>
+        </div>
+    </main>
+
+    <!-- 宠物详情模态框 -->
+    <div class="modal" id="petModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="pet-detail" id="petDetail">
+                <!-- 宠物详情内容将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 宠物百科图鉴. 让爱宠生活更美好 🐕🐱🐰</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
