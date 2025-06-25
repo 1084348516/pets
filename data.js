@@ -134,7 +134,7 @@ const petsData = [
         id: 6,
         name: "仓鼠",
         emoji: "🐹",
-        image: "https://images.unsplash.com/photo-1584553421349-355747226bed?w=400&h=300&fit=crop",
+        image: "cangshu.png",
         description: "仓鼠体型小巧，性格活泼，是适合儿童的宠物选择。",
         longDescription: "仓鼠是夜行性啮齿类动物，原产于叙利亚。它们性格活泼，喜欢在夜间活动。仓鼠体型小巧，饲养空间要求不高，是理想的入门宠物。它们喜欢收集食物和筑巢。",
         difficulty: 1,
