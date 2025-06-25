@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物百科图鉴 - 功能演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin: -2rem -2rem 2rem -2rem;
+            padding: 1rem 2rem;
+        }
+        
+        .header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-title {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .demo-pets {
+            margin-bottom: 3rem;
+        }
+        
+        .demo-pets h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .pets-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .pet-preview {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .pet-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pet-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background: #667eea;
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tech-stack {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        
+        .tech-stack h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        
+        .tech-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tech-item {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #667eea;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .header {
+                margin: -1rem -1rem 1rem -1rem;
+                padding: 1rem;
+            }
+            
+            .demo-title {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pets-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav {
+                gap: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">🐾 宠物百科图鉴</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="about.html" class="nav-link">关于</a>
+                <a href="demo.html" class="nav-link active">演示</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🐾 宠物百科图鉴</h1>
+            <p class="demo-subtitle">探索神奇的宠物世界，了解不同宠物的习性、叫声和饲养要点</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3 class="feature-title">宠物详情</h3>
+                <p class="feature-description">每种宠物都有专属页面，展示详细的性格特点、饲养难度和护理要点</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔊</div>
+                <h3 class="feature-title">音频播放</h3>
+                <p class="feature-description">听各种宠物的真实叫声，包括狗叫、猫叫、鸟叫等，让您更了解宠物</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">饲养统计</h3>
+                <p class="feature-description">"我养过这个宠物"功能，记录您养过的宠物，查看统计信息</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">响应式设计</h3>
+                <p class="feature-description">完美适配桌面端和移动端，随时随地探索宠物世界</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">现代化UI</h3>
+                <p class="feature-description">精美的渐变背景、毛玻璃效果和平滑动画，提供优秀的用户体验</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3 class="feature-title">本地存储</h3>
+                <p class="feature-description">使用localStorage保存您的宠物记录，数据不会丢失</p>
+            </div>
+        </div>
+        
+        <div class="demo-pets">
+            <h2>包含的宠物种类</h2>
+            <div class="pets-preview">
+                <div class="pet-preview">
+                    <div class="pet-emoji">🐕</div>
+                    <div class="pet-name">金毛寻回犬</div>
+                </div>
+                <div class="pet-preview">
+                    <div class="pet-emoji">🐱</div>
+                    <div class="pet-name">英国短毛猫</div>
+                </div>
+                <div class="pet-preview">
+                    <div class="pet-emoji">🐰</div>
+                    <div class="pet-name">荷兰垂耳兔</div>
+                </div>
+                <div class="pet-preview">
+                    <div class="pet-emoji">🦎</div>
+                    <div class="pet-name">豹纹守宫</div>
+                </div>
+                <div class="pet-preview">
+                    <div class="pet-emoji">🦜</div>
+                    <div class="pet-name">虎皮鹦鹉</div>
+                </div>
+                <div class="pet-preview">
+                    <div class="pet-emoji">🐹</div>
+                    <div class="pet-name">仓鼠</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h3>技术栈</h3>
+            <div class="tech-list">
+                <div class="tech-item">HTML5</div>
+                <div class="tech-item">CSS3</div>
+                <div class="tech-item">JavaScript ES6+</div>
+                <div class="tech-item">响应式设计</div>
+                <div class="tech-item">本地存储</div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3 class="cta-title">准备好探索宠物世界了吗？</h3>
+            <a href="index.html" class="cta-button">🚀 开始探索</a>
+        </div>
+    </div>
+</body>
+</html> 
