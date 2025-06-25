@@ -1,35 +1,35 @@
-// 宠物百科图鉴主要JavaScript逻辑
+// Main JavaScript logic for Pet Encyclopedia
 
-// 全局变量
+// Global variables
 let currentAudio = null;
 let currentPet = null;
 
-// DOM元素
+// DOM elements
 const petsGrid = document.getElementById('petsGrid');
 const petModal = document.getElementById('petModal');
 const petDetail = document.getElementById('petDetail');
 const closeBtn = document.querySelector('.close');
 
-// 初始化应用
+// Initialize app
 document.addEventListener('DOMContentLoaded', function() {
     renderPetsGrid();
     setupEventListeners();
     updateStats();
 });
 
-// 设置事件监听器
+// Set up event listeners
 function setupEventListeners() {
-    // 关闭模态框
+    // Close modal
     closeBtn.addEventListener('click', closeModal);
     
-    // 点击模态框外部关闭
+    // Click outside modal to close
     petModal.addEventListener('click', function(e) {
         if (e.target === petModal) {
             closeModal();
         }
     });
     
-    // ESC键关闭模态框
+    // ESC key to close modal
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeModal();
@@ -37,7 +37,7 @@ function setupEventListeners() {
     });
 }
 
-// 渲染宠物网格
+// Render pet grid
 function renderPetsGrid() {
     petsGrid.innerHTML = '';
     
@@ -47,7 +47,7 @@ function renderPetsGrid() {
     });
 }
 
-// 创建宠物卡片
+// Create pet card
 function createPetCard(pet, index) {
     const card = document.createElement('div');
     card.className = 'pet-card';
@@ -64,18 +64,18 @@ function createPetCard(pet, index) {
             <p class="pet-description">${pet.description}</p>
             <div class="pet-stats">
                 <div class="difficulty">
-                    <span>饲养难度:</span>
+                    <span>Care Difficulty:</span>
                     <span class="difficulty-stars">${'⭐'.repeat(pet.difficulty)}</span>
                 </div>
-                <span class="ownership-count">${ownershipCount} 人养过</span>
+                <span class="ownership-count">${ownershipCount} owned</span>
             </div>
             <div class="pet-actions">
                 <button class="btn btn-primary" onclick="openPetDetail(${pet.id})">
-                    📖 查看详情
+                    📖 View Details
                 </button>
                 <button class="btn btn-secondary ${isOwned ? 'owned' : ''}" 
                         onclick="toggleOwnership(${pet.id})">
-                    ${isOwned ? '✅ 已养过' : '💝 我养过这个'}
+                    ${isOwned ? '✅ Owned' : '💝 I have owned this'}
                 </button>
             </div>
         </div>
@@ -84,7 +84,7 @@ function createPetCard(pet, index) {
     return card;
 }
 
-// 打开宠物详情
+// Open pet detail
 function openPetDetail(petId) {
     const pet = petsData.find(p => p.id === petId);
     if (!pet) return;
@@ -95,7 +95,7 @@ function openPetDetail(petId) {
     document.body.style.overflow = 'hidden';
 }
 
-// 渲染宠物详情
+// Render pet detail
 function renderPetDetail(pet) {
     const ownershipCount = getPetOwnershipCount(pet.id);
     const isOwned = petStats.ownedPets.has(pet.id);
@@ -108,19 +108,19 @@ function renderPetDetail(pet) {
                 <p class="pet-detail-description">${pet.longDescription}</p>
                 <div class="pet-detail-stats">
                     <div class="stat-item">
-                        <div class="stat-label">性格特点</div>
+                        <div class="stat-label">Personality</div>
                         <div class="stat-value">${pet.personality}</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">寿命</div>
+                        <div class="stat-label">Lifespan</div>
                         <div class="stat-value">${pet.lifespan}</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">体型</div>
+                        <div class="stat-label">Size</div>
                         <div class="stat-value">${pet.size}</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-label">饲养难度</div>
+                        <div class="stat-label">Care Difficulty</div>
                         <div class="stat-value">${'⭐'.repeat(pet.difficulty)}</div>
                     </div>
                 </div>
@@ -129,59 +129,59 @@ function renderPetDetail(pet) {
         
         <div class="pet-detail-actions">
             <button class="btn btn-primary" onclick="playPetSound(${pet.id})">
-                🔊 听${pet.name}的声音
+                🔊 Listen to ${pet.name}
             </button>
             <button class="btn btn-secondary ${isOwned ? 'owned' : ''}" 
                     onclick="toggleOwnership(${pet.id})">
-                ${isOwned ? '✅ 已养过' : '💝 我养过这个'}
+                ${isOwned ? '✅ Owned' : '💝 I have owned this'}
             </button>
         </div>
         
         <div class="audio-player" id="audioPlayer" style="display: none;">
-            <h3>🎵 ${pet.name}的声音</h3>
+            <h3>🎵 ${pet.name} Sound</h3>
             <div class="audio-controls">
                 <audio id="petAudio" controls>
                     <source src="${pet.audioUrl}" type="audio/wav">
-                    您的浏览器不支持音频播放。
+                    Your browser does not support audio playback.
                 </audio>
             </div>
         </div>
         
         <div class="stats-section">
-            <h3>📊 统计信息</h3>
+            <h3>📊 Statistics</h3>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">${ownershipCount}</div>
-                    <div class="stat-label">人养过</div>
+                    <div class="stat-label">Owned</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${pet.stats.intelligence}</div>
-                    <div class="stat-label">智力评分</div>
+                    <div class="stat-label">Intelligence</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${pet.stats.friendliness}</div>
-                    <div class="stat-label">友善度</div>
+                    <div class="stat-label">Friendliness</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${pet.stats.energy}</div>
-                    <div class="stat-label">活跃度</div>
+                    <div class="stat-label">Energy</div>
                 </div>
             </div>
         </div>
         
         <div class="care-tips">
-            <h3>💡 饲养小贴士</h3>
+            <h3>💡 Care Tips</h3>
             <ul>
                 ${pet.careTips.map(tip => `<li>${tip}</li>`).join('')}
             </ul>
         </div>
     `;
     
-    // 设置音频事件监听器
+    // Set up audio event listeners
     setupAudioEvents();
 }
 
-// 设置音频事件监听器
+// Set up audio event listeners
 function setupAudioEvents() {
     const audio = document.getElementById('petAudio');
     if (audio) {
@@ -190,12 +190,12 @@ function setupAudioEvents() {
         });
         
         audio.addEventListener('error', function() {
-            showMessage('音频加载失败，请稍后重试', 'error');
+            showMessage('Audio failed to load, please try again later', 'error');
         });
     }
 }
 
-// 播放宠物声音
+// Play pet sound
 function playPetSound(petId) {
     const pet = petsData.find(p => p.id === petId);
     if (!pet) return;
@@ -204,7 +204,7 @@ function playPetSound(petId) {
     const audio = document.getElementById('petAudio');
     
     if (audio) {
-        // 停止当前播放的音频
+        // Stop currently playing audio
         if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
             currentAudio.currentTime = 0;
@@ -214,20 +214,20 @@ function playPetSound(petId) {
         audioPlayer.style.display = 'block';
         
         audio.play().catch(error => {
-            console.error('音频播放失败:', error);
-            showMessage('音频播放失败，请检查网络连接', 'error');
+            console.error('Audio playback failed:', error);
+            showMessage('Audio playback failed, please check your network connection', 'error');
         });
     }
 }
 
-// 切换拥有状态
+// Toggle ownership status
 function toggleOwnership(petId) {
     const pet = petsData.find(p => p.id === petId);
     if (!pet) return;
     
     addPetOwnership(petId);
     
-    // 更新UI
+    // Update UI
     updatePetCard(petId);
     if (currentPet && currentPet.id === petId) {
         renderPetDetail(pet);
@@ -237,13 +237,13 @@ function toggleOwnership(petId) {
     
     const isOwned = petStats.ownedPets.has(petId);
     const message = isOwned ? 
-        `恭喜！您已记录养过${pet.name} 🎉` : 
-        `您已经养过${pet.name}了！`;
+        `Congratulations! You have recorded owning ${pet.name} 🎉` : 
+        `You have already owned ${pet.name}!`;
     
     showMessage(message, 'success');
 }
 
-// 更新宠物卡片
+// Update pet card
 function updatePetCard(petId) {
     const card = document.querySelector(`[data-pet-id="${petId}"]`);
     if (!card) return;
@@ -256,33 +256,33 @@ function updatePetCard(petId) {
     const toggleBtn = card.querySelector('.btn-secondary');
     
     if (ownershipCountEl) {
-        ownershipCountEl.textContent = `${ownershipCount} 人养过`;
+        ownershipCountEl.textContent = `${ownershipCount} owned`;
     }
     
     if (toggleBtn) {
-        toggleBtn.textContent = isOwned ? '✅ 已养过' : '💝 我养过这个';
+        toggleBtn.textContent = isOwned ? '✅ Owned' : '💝 I have owned this';
         toggleBtn.classList.toggle('owned', isOwned);
     }
 }
 
-// 更新统计信息
+// Update statistics
 function updateStats() {
     const totalOwned = getTotalOwned();
     const mostPopular = getMostPopularPet();
     
-    // 这里可以添加更多统计信息的显示
-    console.log(`总共有 ${totalOwned} 种不同的宠物被养过`);
+    // You can add more statistics display here
+    console.log(`A total of ${totalOwned} different pets have been owned`);
     if (mostPopular) {
-        console.log(`最受欢迎的宠物是: ${mostPopular.name}`);
+        console.log(`The most popular pet is: ${mostPopular.name}`);
     }
 }
 
-// 关闭模态框
+// Close modal
 function closeModal() {
     petModal.style.display = 'none';
     document.body.style.overflow = 'auto';
     
-    // 停止音频播放
+    // Stop audio playback
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
@@ -297,9 +297,9 @@ function closeModal() {
     currentPet = null;
 }
 
-// 显示消息提示
+// Show message prompt
 function showMessage(message, type = 'info') {
-    // 移除现有的消息
+    // Remove existing message
     const existingMessage = document.querySelector('.message');
     if (existingMessage) {
         existingMessage.remove();
@@ -309,10 +309,10 @@ function showMessage(message, type = 'info') {
     messageDiv.className = `message ${type}-message`;
     messageDiv.textContent = message;
     
-    // 添加到页面顶部
+    // Add to top of page
     document.body.insertBefore(messageDiv, document.body.firstChild);
     
-    // 3秒后自动移除
+    // Remove after 3 seconds
     setTimeout(() => {
         if (messageDiv.parentNode) {
             messageDiv.remove();
@@ -320,7 +320,7 @@ function showMessage(message, type = 'info') {
     }, 3000);
 }
 
-// 添加CSS样式用于消息提示
+// Add CSS for message prompt
 const style = document.createElement('style');
 style.textContent = `
     .message {
@@ -419,19 +419,19 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// 图片加载错误处理
+// Image load error handling
 document.addEventListener('error', function(e) {
     if (e.target.tagName === 'IMG') {
-        e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPuWbvueJh+WKoOi9veWksei0pTwvdGV4dD48L3N2Zz4=';
+        e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjhmOWZhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
     }
 }, true);
 
-// 添加页面加载动画
+// Add page load animation
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
 
-// 添加滚动动画
+// Add scroll animation
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -445,7 +445,7 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// 观察宠物卡片
+// Observe pet cards
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         const cards = document.querySelectorAll('.pet-card');

@@ -1,130 +1,132 @@
-# 🐾 宠物百科图鉴
+# 🐾 Pet Encyclopedia
 
-一个现代化的宠物百科网站，展示各种宠物的详细信息、叫声和饲养要点。
+A modern pet encyclopedia website that showcases detailed information, sounds, and care tips for various pets.
 
-## ✨ 功能特性
+## ✨ Features
 
-### 🎯 核心功能
-- **宠物展示**: 精美的宠物卡片展示，包含图片、描述和基本信息
-- **详细页面**: 每种宠物都有专属的详细信息页面
-- **音频播放**: 听各种宠物的真实叫声（狗叫、猫叫、鸟叫等）
-- **饲养统计**: "我养过这个宠物"功能，统计用户养过的宠物
-- **本地存储**: 使用localStorage保存用户的宠物拥有记录
+### 🎯 Core Features
+- **Pet Display**: Beautiful pet cards with images, descriptions, and basic info
+- **Detail Pages**: Each pet has a dedicated detail page
+- **Audio Playback**: Listen to real pet sounds (dog, cat, bird, etc.)
+- **Ownership Statistics**: "I have owned this pet" feature to record and view stats
+- **Local Storage**: Uses localStorage to save your pet ownership records
 
-### 🎨 设计亮点
-- **响应式设计**: 完美适配桌面端和移动端
-- **现代化UI**: 渐变背景、毛玻璃效果、平滑动画
-- **交互体验**: 悬停效果、加载动画、模态框展示
-- **无障碍设计**: 支持键盘导航和屏幕阅读器
+### 🎨 Design Highlights
+- **Responsive Design**: Perfectly adapts to desktop and mobile
+- **Modern UI**: Gradient backgrounds, glassmorphism, smooth animations
+- **Interactive Experience**: Hover effects, loading animations, modals
+- **Accessibility**: Supports keyboard navigation and screen readers
 
-### 📊 宠物信息
-- **基本信息**: 名称、描述、性格特点
-- **饲养数据**: 难度评分、寿命、体型、护理等级
-- **能力评分**: 智力、友善度、活跃度、可训练性
-- **护理贴士**: 详细的饲养建议和注意事项
+### 📊 Pet Information
+- **Basic Info**: Name, description, personality
+- **Care Data**: Difficulty, lifespan, size, care level
+- **Ability Ratings**: Intelligence, friendliness, energy, trainability
+- **Care Tips**: Detailed care advice and notes
 
-## 🚀 快速开始
+## 🚀 Getting Started
 
-### 环境要求
-- 现代浏览器（支持ES6+）
-- 网络连接（用于加载图片和音频）
+### Requirements
+- Modern browser (ES6+ support)
+- Internet connection (for images and audio)
 
-### 安装运行
-1. 克隆或下载项目文件
-2. 直接在浏览器中打开 `index.html`
-3. 开始探索宠物世界！
+### Usage
+1. Clone or download the project files
+2. Open `index.html` in your browser
+3. Start exploring the world of pets!
 
-### 文件结构
+### File Structure
 ```
 pet_encyclopedia/
-├── index.html          # 主页面
-├── styles.css          # 样式文件
-├── script.js           # 主要逻辑
-├── data.js             # 宠物数据配置
-└── README.md           # 项目说明
+├── index.html          # Main page
+├── styles.css          # Styles
+├── script.js           # Main logic
+├── data.js             # Pet data
+├── about.html          # About page
+├── demo.html           # Demo page
+└── README.md           # Project info
 ```
 
-## 🐕 包含的宠物
+## 🐕 Included Pets
 
-### 哺乳类
-- **金毛寻回犬**: 温顺友善的家庭伴侣犬
-- **英国短毛猫**: 独立优雅的室内宠物
-- **荷兰垂耳兔**: 温顺安静的小型宠物兔
-- **仓鼠**: 活泼好奇的入门宠物
+### Mammals
+- **Golden Retriever**: Gentle, friendly family dog
+- **British Shorthair**: Independent, elegant indoor cat
+- **Holland Lop**: Gentle, quiet small rabbit
+- **Hamster**: Lively, curious beginner pet
 
-### 爬虫类
-- **豹纹守宫**: 温和的爬虫类入门选择
+### Reptiles
+- **Leopard Gecko**: Gentle, easy reptile for beginners
 
-### 鸟类
-- **虎皮鹦鹉**: 聪明活泼的伴侣鸟
+### Birds
+- **Budgerigar**: Smart, lively companion bird
 
-## 🎵 音频功能
+## 🎵 Audio Feature
 
-### 支持的音频格式
-- WAV格式（推荐）
-- MP3格式
-- 其他浏览器支持的音频格式
+### Supported Audio Formats
+- WAV (recommended)
+- MP3
+- Other browser-supported formats
 
-### 音频控制
-- 播放/暂停控制
-- 音量调节
-- 自动停止（播放完成后）
+### Audio Controls
+- Play/pause
+- Volume control
+- Auto stop after playback
 
-## 📱 响应式设计
+## 📱 Responsive Design
 
-### 桌面端 (>768px)
-- 网格布局展示宠物卡片
-- 侧边栏导航
-- 大尺寸图片和详细内容
+### Desktop (>768px)
+- Grid layout for pet cards
+- Sidebar navigation
+- Large images and detailed content
 
-### 移动端 (≤768px)
-- 单列卡片布局
-- 底部导航
-- 优化的触摸交互
+### Mobile (≤768px)
+- Single-column card layout
+- Bottom navigation
+- Optimized for touch
 
-## 💾 数据存储
+## 💾 Data Storage
 
-### 本地存储内容
-- 用户养过的宠物记录
-- 每种宠物的拥有统计
-- 总拥有数量
+### Local Storage
+- Records of pets you have owned
+- Ownership statistics for each pet
+- Total owned count
 
-### 数据持久化
-- 使用localStorage保存数据
-- 浏览器关闭后数据不丢失
-- 支持数据导出/导入
+### Data Persistence
+- Uses localStorage
+- Data is retained after browser close
+- Supports data export/import
 
-## 🛠️ 技术栈
+## 🛠️ Tech Stack
 
-### 前端技术
-- **HTML5**: 语义化标签和现代特性
-- **CSS3**: Flexbox、Grid、动画、渐变
-- **JavaScript ES6+**: 模块化、异步处理、DOM操作
+### Frontend
+- **HTML5**: Semantic tags and modern features
+- **CSS3**: Flexbox, Grid, animations, gradients
+- **JavaScript ES6+**: Modular, async, DOM manipulation
 
-### 第三方资源
-- **Google Fonts**: Noto Sans SC字体
-- **Unsplash**: 高质量宠物图片
-- **SoundJay**: 宠物叫声音频
+### Third-party Resources
+- **Google Fonts**: Noto Sans SC
+- **Unsplash**: High-quality pet images
+- **SoundJay**: Pet sound audio
 
-## 🎨 自定义配置
+## 🎨 Customization
 
-### 添加新宠物
-在 `data.js` 文件中添加新的宠物数据：
+### Add a New Pet
+Add a new pet object in `data.js`:
 
 ```javascript
 {
     id: 7,
-    name: "新宠物名称",
+    name: "New Pet Name",
     emoji: "🐾",
-    image: "图片URL",
-    description: "简短描述",
-    longDescription: "详细描述",
+    image: "Image URL",
+    description: "Short description",
+    longDescription: "Detailed description",
     difficulty: 2,
-    personality: "性格特点",
-    lifespan: "寿命",
-    size: "体型",
-    careLevel: "护理等级",
-    audioUrl: "音频URL",
+    personality: "Personality traits",
+    lifespan: "Lifespan",
+    size: "Size",
+    careLevel: "Care level",
+    audioUrl: "Audio URL",
     stats: {
         intelligence: 3,
         friendliness: 4,
@@ -132,62 +134,62 @@ pet_encyclopedia/
         trainability: 3
     },
     careTips: [
-        "护理建议1",
-        "护理建议2"
+        "Care tip 1",
+        "Care tip 2"
     ]
 }
 ```
 
-### 修改样式
-- 主色调：修改CSS变量 `--primary-color`
-- 字体：更换Google Fonts链接
-- 布局：调整Grid和Flexbox参数
+### Modify Styles
+- Main color: change CSS variable `--primary-color`
+- Font: change Google Fonts link
+- Layout: adjust Grid and Flexbox
 
-## 🔧 浏览器兼容性
+## 🔧 Browser Compatibility
 
-### 支持的浏览器
+### Supported Browsers
 - Chrome 60+
 - Firefox 55+
 - Safari 12+
 - Edge 79+
 
-### 功能降级
-- 不支持音频的浏览器：隐藏音频播放按钮
-- 不支持localStorage的浏览器：统计功能不可用
-- 不支持CSS Grid的浏览器：使用Flexbox布局
+### Graceful Degradation
+- Browsers without audio: hide audio button
+- Browsers without localStorage: stats not available
+- Browsers without CSS Grid: use Flexbox
 
-## 📈 性能优化
+## 📈 Performance Optimization
 
-### 图片优化
-- 使用WebP格式（支持时）
-- 懒加载图片
-- 响应式图片尺寸
+### Image Optimization
+- Use WebP (if supported)
+- Lazy load images
+- Responsive image sizes
 
-### 代码优化
-- 异步加载非关键资源
-- 事件委托减少DOM操作
-- 防抖处理用户交互
+### Code Optimization
+- Async load non-critical resources
+- Event delegation to reduce DOM ops
+- Debounce user interactions
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交Issue和Pull Request来改进项目！
+Contributions are welcome!
 
-### 贡献方式
-1. Fork项目
-2. 创建功能分支
-3. 提交更改
-4. 发起Pull Request
+### How to Contribute
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
 
-## 📄 许可证
+## 📄 License
 
-MIT License - 详见LICENSE文件
+MIT License - see LICENSE file
 
-## 🙏 致谢
+## 🙏 Acknowledgements
 
-- 感谢Unsplash提供的高质量图片
-- 感谢SoundJay提供的音频资源
-- 感谢所有为项目做出贡献的开发者
+- Thanks to Unsplash for images
+- Thanks to SoundJay for audio
+- Thanks to all contributors
 
 ---
 
-**让爱宠生活更美好** 🐕🐱🐰 
+**Make pet life better** 🐕🐱🐰 

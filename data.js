@@ -1,17 +1,17 @@
-// 宠物百科数据配置
+// Pet Encyclopedia Data Configuration
 const petsData = [
     {
         id: 1,
-        name: "金毛寻回犬",
+        name: "Golden Retriever",
         emoji: "🐕",
         image: "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&h=300&fit=crop",
-        description: "金毛寻回犬性格温顺友善，非常适合家庭饲养。它们聪明、忠诚，是优秀的伴侣犬。",
-        longDescription: "金毛寻回犬起源于19世纪的苏格兰，最初被培育用于猎取水鸟。它们具有出色的游泳能力和温和的性格，是世界上最受欢迎的犬种之一。金毛寻回犬对主人非常忠诚，对儿童特别友善，是理想的家庭宠物。",
+        description: "Golden Retrievers are gentle and friendly, perfect for families. They are smart, loyal, and make excellent companions.",
+        longDescription: "The Golden Retriever originated in 19th-century Scotland, initially bred for retrieving waterfowl. They are excellent swimmers and have a gentle temperament, making them one of the most popular dog breeds in the world. Golden Retrievers are very loyal to their owners and especially friendly to children, making them ideal family pets.",
         difficulty: 2,
-        personality: "温顺友善、聪明忠诚、活泼好动",
-        lifespan: "10-12年",
-        size: "大型犬",
-        careLevel: "中等",
+        personality: "Gentle, friendly, intelligent, loyal, energetic",
+        lifespan: "10-12 years",
+        size: "Large dog",
+        careLevel: "Moderate",
         audioUrl: "https://www.soundjay.com/misc/sounds/dog-barking-1.wav",
         stats: {
             intelligence: 4,
@@ -20,24 +20,24 @@ const petsData = [
             trainability: 5
         },
         careTips: [
-            "每天需要1-2小时的运动",
-            "定期梳理毛发，每周2-3次",
-            "注意控制体重，避免过度肥胖",
-            "定期进行健康检查"
+            "Needs 1-2 hours of exercise daily",
+            "Brush coat regularly, 2-3 times a week",
+            "Control weight to avoid obesity",
+            "Regular health check-ups"
         ]
     },
     {
         id: 2,
-        name: "英国短毛猫",
+        name: "British Shorthair",
         emoji: "🐱",
         image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop",
-        description: "英国短毛猫体型圆润，性格温和独立，是理想的室内宠物。",
-        longDescription: "英国短毛猫是世界上最古老的猫种之一，起源于古罗马时期。它们具有圆润的脸庞、短而密的毛发和温和的性格。英短猫独立性强，不需要过多的关注，但也喜欢与主人互动。它们适应能力强，适合各种家庭环境。",
+        description: "British Shorthairs are round-bodied, gentle, and independent, making them ideal indoor pets.",
+        longDescription: "The British Shorthair is one of the oldest cat breeds in the world, originating from ancient Rome. They have round faces, short dense fur, and a gentle temperament. British Shorthairs are independent and do not require excessive attention, but they also enjoy interacting with their owners. They are adaptable and suitable for various home environments.",
         difficulty: 1,
-        personality: "温和独立、安静优雅、忠诚",
-        lifespan: "12-20年",
-        size: "中型猫",
-        careLevel: "简单",
+        personality: "Gentle, independent, quiet, elegant, loyal",
+        lifespan: "12-20 years",
+        size: "Medium cat",
+        careLevel: "Easy",
         audioUrl: "https://www.soundjay.com/misc/sounds/cat-meow-1.wav",
         stats: {
             intelligence: 3,
@@ -46,24 +46,24 @@ const petsData = [
             trainability: 3
         },
         careTips: [
-            "提供干净的猫砂盆",
-            "定期梳理毛发",
-            "控制饮食，避免肥胖",
-            "提供抓挠板和玩具"
+            "Provide a clean litter box",
+            "Brush fur regularly",
+            "Control diet to avoid obesity",
+            "Provide scratching posts and toys"
         ]
     },
     {
         id: 3,
-        name: "荷兰垂耳兔",
+        name: "Holland Lop",
         emoji: "🐰",
         image: "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&h=300&fit=crop",
-        description: "荷兰垂耳兔性格温顺，体型小巧，是受欢迎的宠物兔品种。",
-        longDescription: "荷兰垂耳兔因其下垂的耳朵而得名，是小型宠物兔的代表品种。它们性格温顺，容易驯养，适合初学者饲养。荷兰垂耳兔喜欢群居，建议成对饲养。它们需要充足的空间活动和玩耍。",
+        description: "Holland Lops are gentle and small, a popular pet rabbit breed.",
+        longDescription: "The Holland Lop is named for its lopped ears and is a representative breed of small pet rabbits. They are gentle, easy to tame, and suitable for beginners. Holland Lops enjoy company and are best kept in pairs. They need plenty of space to move and play.",
         difficulty: 2,
-        personality: "温顺安静、好奇活泼、群居",
-        lifespan: "7-10年",
-        size: "小型兔",
-        careLevel: "中等",
+        personality: "Gentle, quiet, curious, lively, social",
+        lifespan: "7-10 years",
+        size: "Small rabbit",
+        careLevel: "Moderate",
         audioUrl: "https://www.soundjay.com/misc/sounds/rabbit-sound-1.wav",
         stats: {
             intelligence: 3,
@@ -72,24 +72,24 @@ const petsData = [
             trainability: 2
         },
         careTips: [
-            "提供充足的干草",
-            "保持笼舍清洁",
-            "定期修剪指甲",
-            "提供安全的活动空间"
+            "Provide plenty of hay",
+            "Keep the cage clean",
+            "Trim nails regularly",
+            "Provide a safe space for activity"
         ]
     },
     {
         id: 4,
-        name: "豹纹守宫",
+        name: "Leopard Gecko",
         emoji: "🦎",
         image: "https://images.unsplash.com/photo-1559251606-c623743a6d76?w=400&h=300&fit=crop",
-        description: "豹纹守宫是爬虫类宠物的入门选择，性格温和，易于饲养。",
-        longDescription: "豹纹守宫原产于巴基斯坦和阿富汗的沙漠地区，是夜行性爬行动物。它们性格温和，不会主动攻击人类，是爬虫类宠物的理想选择。豹纹守宫适应能力强，对环境要求相对简单。",
+        description: "Leopard Geckos are a great entry-level reptile pet, gentle and easy to care for.",
+        longDescription: "Leopard Geckos originate from the deserts of Pakistan and Afghanistan and are nocturnal reptiles. They are gentle and do not attack humans, making them ideal reptile pets. Leopard Geckos are adaptable and have relatively simple environmental requirements.",
         difficulty: 3,
-        personality: "安静独立、温和、夜行性",
-        lifespan: "15-20年",
-        size: "小型爬虫",
-        careLevel: "复杂",
+        personality: "Quiet, independent, gentle, nocturnal",
+        lifespan: "15-20 years",
+        size: "Small reptile",
+        careLevel: "Complex",
         audioUrl: "https://www.soundjay.com/misc/sounds/lizard-sound-1.wav",
         stats: {
             intelligence: 2,
@@ -98,24 +98,24 @@ const petsData = [
             trainability: 1
         },
         careTips: [
-            "维持适宜的温度和湿度",
-            "提供UVB照明",
-            "定期喂食昆虫",
-            "保持栖息地清洁"
+            "Maintain proper temperature and humidity",
+            "Provide UVB lighting",
+            "Feed insects regularly",
+            "Keep the habitat clean"
         ]
     },
     {
         id: 5,
-        name: "虎皮鹦鹉",
+        name: "Budgerigar",
         emoji: "🦜",
         image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop",
-        description: "虎皮鹦鹉聪明活泼，能够模仿人声，是受欢迎的宠物鸟。",
-        longDescription: "虎皮鹦鹉原产于澳大利亚，是世界上最小的鹦鹉品种之一。它们聪明好学，能够模仿人声和周围的声音。虎皮鹦鹉性格活泼，喜欢与主人互动，是理想的伴侣鸟。",
+        description: "Budgerigars are smart and lively, can mimic human speech, and are popular pet birds.",
+        longDescription: "Budgerigars originate from Australia and are one of the smallest parrot species in the world. They are intelligent and can mimic human speech and surrounding sounds. Budgerigars are lively and enjoy interacting with their owners, making them ideal companion birds.",
         difficulty: 2,
-        personality: "聪明活泼、善于模仿、群居",
-        lifespan: "5-10年",
-        size: "小型鸟",
-        careLevel: "中等",
+        personality: "Smart, lively, good at mimicking, social",
+        lifespan: "5-10 years",
+        size: "Small bird",
+        careLevel: "Moderate",
         audioUrl: "https://www.soundjay.com/misc/sounds/parrot-sound-1.wav",
         stats: {
             intelligence: 4,
@@ -124,24 +124,24 @@ const petsData = [
             trainability: 4
         },
         careTips: [
-            "提供宽敞的鸟笼",
-            "定期更换饮用水",
-            "提供丰富的玩具",
-            "注意营养均衡"
+            "Provide a spacious cage",
+            "Change drinking water regularly",
+            "Provide plenty of toys",
+            "Ensure a balanced diet"
         ]
     },
     {
         id: 6,
-        name: "仓鼠",
+        name: "Hamster",
         emoji: "🐹",
-        image: "cangshu.png",
-        description: "仓鼠体型小巧，性格活泼，是适合儿童的宠物选择。",
-        longDescription: "仓鼠是夜行性啮齿类动物，原产于叙利亚。它们性格活泼，喜欢在夜间活动。仓鼠体型小巧，饲养空间要求不高，是理想的入门宠物。它们喜欢收集食物和筑巢。",
+        image: "https://images.unsplash.com/photo-1584553421349-355747226bed?w=400&h=300&fit=crop",
+        description: "Hamsters are small and lively, a great pet choice for children.",
+        longDescription: "Hamsters are nocturnal rodents originally from Syria. They are lively and active at night. Hamsters are small and do not require much space, making them ideal beginner pets. They love to collect food and build nests.",
         difficulty: 1,
-        personality: "活泼好奇、夜行性、独居",
-        lifespan: "2-3年",
-        size: "超小型",
-        careLevel: "简单",
+        personality: "Lively, curious, nocturnal, solitary",
+        lifespan: "2-3 years",
+        size: "Tiny",
+        careLevel: "Easy",
         audioUrl: "https://www.soundjay.com/misc/sounds/hamster-sound-1.wav",
         stats: {
             intelligence: 2,
@@ -150,27 +150,27 @@ const petsData = [
             trainability: 1
         },
         careTips: [
-            "提供运动轮",
-            "保持笼舍清洁",
-            "提供藏身之处",
-            "注意饮食卫生"
+            "Provide a running wheel",
+            "Keep the cage clean",
+            "Provide hiding places",
+            "Ensure food hygiene"
         ]
     }
 ];
 
-// 统计数据结构
+// Statistics structure
 let petStats = {
     totalOwned: 0,
     ownedPets: new Set(),
     petOwnershipCount: {}
 };
 
-// 初始化统计数据
+// Initialize statistics
 petsData.forEach(pet => {
     petStats.petOwnershipCount[pet.id] = 0;
 });
 
-// 从本地存储加载统计数据
+// Load statistics from localStorage
 function loadStats() {
     const savedStats = localStorage.getItem('petStats');
     if (savedStats) {
@@ -181,7 +181,7 @@ function loadStats() {
     }
 }
 
-// 保存统计数据到本地存储
+// Save statistics to localStorage
 function saveStats() {
     localStorage.setItem('petStats', JSON.stringify({
         totalOwned: petStats.totalOwned,
@@ -190,7 +190,7 @@ function saveStats() {
     }));
 }
 
-// 添加宠物拥有记录
+// Add pet ownership record
 function addPetOwnership(petId) {
     if (!petStats.ownedPets.has(petId)) {
         petStats.ownedPets.add(petId);
@@ -200,17 +200,17 @@ function addPetOwnership(petId) {
     saveStats();
 }
 
-// 获取宠物拥有统计
+// Get pet ownership count
 function getPetOwnershipCount(petId) {
     return petStats.petOwnershipCount[petId] || 0;
 }
 
-// 获取总拥有数量
+// Get total owned count
 function getTotalOwned() {
     return petStats.totalOwned;
 }
 
-// 获取最受欢迎的宠物
+// Get most popular pet
 function getMostPopularPet() {
     let maxCount = 0;
     let mostPopular = null;
@@ -225,5 +225,5 @@ function getMostPopularPet() {
     return mostPopular;
 }
 
-// 页面加载时初始化统计数据
+// Initialize statistics on page load
 document.addEventListener('DOMContentLoaded', loadStats); 
