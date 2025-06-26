@@ -14,7 +14,6 @@ const closeBtn = document.querySelector('.close');
 document.addEventListener('DOMContentLoaded', function() {
     renderPetsGrid();
     setupEventListeners();
-    updateStats();
 });
 
 // Set up event listeners
@@ -54,9 +53,6 @@ function createPetCard(pet, index) {
     card.setAttribute('data-pet-id', pet.id);
     card.style.setProperty('--card-index', index);
     
-    const ownershipCount = getPetOwnershipCount(pet.id);
-    const isOwned = petStats.ownedPets.has(pet.id);
-    
     card.innerHTML = `
         <img src="${pet.image}" alt="${pet.name}" class="pet-image" loading="lazy">
         <div class="pet-info">
@@ -67,15 +63,10 @@ function createPetCard(pet, index) {
                     <span>Care Difficulty:</span>
                     <span class="difficulty-stars">${'⭐'.repeat(pet.difficulty)}</span>
                 </div>
-                <span class="ownership-count">${ownershipCount} owned</span>
             </div>
             <div class="pet-actions">
                 <button class="btn btn-primary" onclick="openPetDetail(${pet.id})">
                     📖 View Details
-                </button>
-                <button class="btn btn-secondary ${isOwned ? 'owned' : ''}" 
-                        onclick="toggleOwnership(${pet.id})">
-                    ${isOwned ? '✅ Owned' : '💝 I have owned this'}
                 </button>
             </div>
         </div>
@@ -97,9 +88,6 @@ function openPetDetail(petId) {
 
 // Render pet detail
 function renderPetDetail(pet) {
-    const ownershipCount = getPetOwnershipCount(pet.id);
-    const isOwned = petStats.ownedPets.has(pet.id);
-    
     petDetail.innerHTML = `
         <div class="pet-detail-header">
             <img src="${pet.image}" alt="${pet.name}" class="pet-detail-image">
@@ -131,10 +119,6 @@ function renderPetDetail(pet) {
             <button class="btn btn-primary" onclick="playPetSound(${pet.id})">
                 🔊 Listen to ${pet.name}
             </button>
-            <button class="btn btn-secondary ${isOwned ? 'owned' : ''}" 
-                    onclick="toggleOwnership(${pet.id})">
-                ${isOwned ? '✅ Owned' : '💝 I have owned this'}
-            </button>
         </div>
         
         <div class="audio-player" id="audioPlayer" style="display: none;">
@@ -148,12 +132,8 @@ function renderPetDetail(pet) {
         </div>
         
         <div class="stats-section">
-            <h3>📊 Statistics</h3>
+            <h3>📊 Pet Stats</h3>
             <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">${ownershipCount}</div>
-                    <div class="stat-label">Owned</div>
-                </div>
                 <div class="stat-card">
                     <div class="stat-number">${pet.stats.intelligence}</div>
                     <div class="stat-label">Intelligence</div>
@@ -165,6 +145,10 @@ function renderPetDetail(pet) {
                 <div class="stat-card">
                     <div class="stat-number">${pet.stats.energy}</div>
                     <div class="stat-label">Energy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${pet.stats.trainability}</div>
+                    <div class="stat-label">Trainability</div>
                 </div>
             </div>
         </div>
@@ -217,63 +201,6 @@ function playPetSound(petId) {
             console.error('Audio playback failed:', error);
             showMessage('Audio playback failed, please check your network connection', 'error');
         });
-    }
-}
-
-// Toggle ownership status
-function toggleOwnership(petId) {
-    const pet = petsData.find(p => p.id === petId);
-    if (!pet) return;
-    
-    addPetOwnership(petId);
-    
-    // Update UI
-    updatePetCard(petId);
-    if (currentPet && currentPet.id === petId) {
-        renderPetDetail(pet);
-    }
-    
-    updateStats();
-    
-    const isOwned = petStats.ownedPets.has(petId);
-    const message = isOwned ? 
-        `Congratulations! You have recorded owning ${pet.name} 🎉` : 
-        `You have already owned ${pet.name}!`;
-    
-    showMessage(message, 'success');
-}
-
-// Update pet card
-function updatePetCard(petId) {
-    const card = document.querySelector(`[data-pet-id="${petId}"]`);
-    if (!card) return;
-    
-    const pet = petsData.find(p => p.id === petId);
-    const ownershipCount = getPetOwnershipCount(petId);
-    const isOwned = petStats.ownedPets.has(petId);
-    
-    const ownershipCountEl = card.querySelector('.ownership-count');
-    const toggleBtn = card.querySelector('.btn-secondary');
-    
-    if (ownershipCountEl) {
-        ownershipCountEl.textContent = `${ownershipCount} owned`;
-    }
-    
-    if (toggleBtn) {
-        toggleBtn.textContent = isOwned ? '✅ Owned' : '💝 I have owned this';
-        toggleBtn.classList.toggle('owned', isOwned);
-    }
-}
-
-// Update statistics
-function updateStats() {
-    const totalOwned = getTotalOwned();
-    const mostPopular = getMostPopularPet();
-    
-    // You can add more statistics display here
-    console.log(`A total of ${totalOwned} different pets have been owned`);
-    if (mostPopular) {
-        console.log(`The most popular pet is: ${mostPopular.name}`);
     }
 }
 
@@ -357,15 +284,6 @@ style.textContent = `
             transform: translateX(0);
             opacity: 1;
         }
-    }
-    
-    .btn.owned {
-        background: #28a745;
-        color: white;
-    }
-    
-    .btn.owned:hover {
-        background: #218838;
     }
     
     .care-tips {
