@@ -54,9 +54,15 @@ function createPetCard(pet, index) {
     card.style.setProperty('--card-index', index);
     
     card.innerHTML = `
+        <div class="sound-indicator" id="sound-indicator-${pet.id}">
+            🔊
+        </div>
         <img src="${pet.image}" alt="${pet.name}" class="pet-image" loading="lazy">
         <div class="pet-info">
-            <h3 class="pet-name">${pet.emoji} ${pet.name}</h3>
+            <h3 class="pet-name">
+                <span class="emoji">${pet.emoji}</span>
+                ${pet.name}
+            </h3>
             <p class="pet-description">${pet.description}</p>
             <div class="pet-stats">
                 <div class="difficulty">
@@ -67,6 +73,9 @@ function createPetCard(pet, index) {
             <div class="pet-actions">
                 <button class="btn btn-primary" onclick="openPetDetail(${pet.id})">
                     📖 View Details
+                </button>
+                <button class="btn btn-sound" onclick="playPetSoundFromCard(${pet.id})" id="sound-btn-${pet.id}">
+                    🔊
                 </button>
             </div>
         </div>
@@ -179,7 +188,171 @@ function setupAudioEvents() {
     }
 }
 
-// Play pet sound
+// Play pet sound from card
+function playPetSoundFromCard(petId) {
+    const pet = petsData.find(p => p.id === petId);
+    if (!pet) return;
+    
+    const soundBtn = document.getElementById(`sound-btn-${petId}`);
+    const soundIndicator = document.getElementById(`sound-indicator-${petId}`);
+    
+    // Stop currently playing audio
+    if (currentAudio && currentAudio !== soundBtn) {
+        stopCurrentAudio();
+    }
+    
+    // If this audio is already playing, stop it
+    if (soundBtn.classList.contains('playing')) {
+        stopCurrentAudio();
+        return;
+    }
+    
+    // Update UI to show playing state
+    soundBtn.classList.add('playing');
+    soundBtn.innerHTML = '⏹️';
+    soundIndicator.classList.add('visible', 'playing');
+    soundIndicator.innerHTML = '🔊';
+    
+    // Try to play audio, if it fails, show a message
+    try {
+        const audio = new Audio(pet.audioUrl);
+        currentAudio = audio;
+        
+        // Set a timeout to handle loading issues
+        const audioTimeout = setTimeout(() => {
+            showMessage('Audio is taking longer than expected to load', 'info');
+        }, 3000);
+        
+        // Play audio
+        audio.play().then(() => {
+            clearTimeout(audioTimeout);
+            showMessage(`Playing ${pet.name} sound! 🔊`, 'success');
+        }).catch(error => {
+            clearTimeout(audioTimeout);
+            console.error('Audio playback failed:', error);
+            // Fallback to simulated sound
+            simulatePetSound(pet, soundBtn, soundIndicator);
+        });
+        
+        // Handle audio end
+        audio.addEventListener('ended', function() {
+            stopCurrentAudio();
+        });
+        
+        // Handle audio error
+        audio.addEventListener('error', function(e) {
+            console.error('Audio failed to load:', e);
+            simulatePetSound(pet, soundBtn, soundIndicator);
+        });
+        
+    } catch (error) {
+        console.error('Audio creation failed:', error);
+        simulatePetSound(pet, soundBtn, soundIndicator);
+    }
+}
+
+// Simulate pet sound when audio fails
+function simulatePetSound(pet, soundBtn, soundIndicator) {
+    showMessage(`Simulating ${pet.name} sound! 🔊`, 'info');
+    
+    // Create a simple beep sound using Web Audio API
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        // Set different frequencies for different pets
+        let frequency = 440; // Default A note
+        let duration = 1000; // 1 second
+        
+        switch(pet.name) {
+            case "Golden Retriever":
+                frequency = 200; // Low bark-like sound
+                duration = 800;
+                break;
+            case "British Shorthair":
+            case "Siamese Cat":
+                frequency = 800; // High meow-like sound
+                duration = 600;
+                break;
+            case "Holland Lop":
+                frequency = 300; // Soft rabbit sound
+                duration = 500;
+                break;
+            case "Leopard Gecko":
+            case "Bearded Dragon":
+                frequency = 150; // Very low reptile sound
+                duration = 400;
+                break;
+            case "Budgerigar":
+            case "African Grey Parrot":
+                frequency = 1200; // High bird chirp
+                duration = 700;
+                break;
+            case "Hamster":
+            case "Guinea Pig":
+                frequency = 600; // Medium rodent sound
+                duration = 400;
+                break;
+            case "Betta Fish":
+                frequency = 100; // Very low bubble sound
+                duration = 300;
+                break;
+            case "Red-Eared Slider Turtle":
+                frequency = 80; // Very low turtle sound
+                duration = 600;
+                break;
+        }
+        
+        oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+        oscillator.type = 'sine';
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + duration / 1000);
+        
+        // Stop the sound after duration
+        setTimeout(() => {
+            stopCurrentAudio();
+        }, duration);
+        
+    } catch (error) {
+        console.error('Web Audio API failed:', error);
+        // Final fallback - just show a message
+        showMessage(`🎵 ${pet.name} would make a sound here!`, 'success');
+        setTimeout(() => {
+            stopCurrentAudio();
+        }, 2000);
+    }
+}
+
+// Stop current audio
+function stopCurrentAudio() {
+    if (currentAudio) {
+        if (currentAudio.pause) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+        currentAudio = null;
+    }
+    
+    // Reset all sound buttons and indicators
+    document.querySelectorAll('.btn-sound.playing').forEach(btn => {
+        btn.classList.remove('playing');
+        btn.innerHTML = '🔊';
+    });
+    
+    document.querySelectorAll('.sound-indicator.visible').forEach(indicator => {
+        indicator.classList.remove('visible', 'playing');
+    });
+}
+
+// Enhanced play pet sound for modal
 function playPetSound(petId) {
     const pet = petsData.find(p => p.id === petId);
     if (!pet) return;
@@ -199,7 +372,8 @@ function playPetSound(petId) {
         
         audio.play().catch(error => {
             console.error('Audio playback failed:', error);
-            showMessage('Audio playback failed, please check your network connection', 'error');
+            showMessage('Audio playback failed, trying simulated sound...', 'info');
+            simulatePetSound(pet, null, null);
         });
     }
 }
@@ -210,11 +384,7 @@ function closeModal() {
     document.body.style.overflow = 'auto';
     
     // Stop audio playback
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        currentAudio = null;
-    }
+    stopCurrentAudio();
     
     const audioPlayer = document.getElementById('audioPlayer');
     if (audioPlayer) {

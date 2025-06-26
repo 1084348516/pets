@@ -12,7 +12,7 @@ const petsData = [
         lifespan: "10-12 years",
         size: "Large dog",
         careLevel: "Moderate",
-        audioUrl: "https://www.soundjay.com/misc/sounds/dog-barking-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
         stats: {
             intelligence: 4,
             friendliness: 5,
@@ -38,7 +38,7 @@ const petsData = [
         lifespan: "12-20 years",
         size: "Medium cat",
         careLevel: "Easy",
-        audioUrl: "https://www.soundjay.com/misc/sounds/cat-meow-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
         stats: {
             intelligence: 3,
             friendliness: 4,
@@ -64,7 +64,7 @@ const petsData = [
         lifespan: "7-10 years",
         size: "Small rabbit",
         careLevel: "Moderate",
-        audioUrl: "https://www.soundjay.com/misc/sounds/rabbit-sound-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         stats: {
             intelligence: 3,
             friendliness: 4,
@@ -90,7 +90,7 @@ const petsData = [
         lifespan: "15-20 years",
         size: "Small reptile",
         careLevel: "Complex",
-        audioUrl: "https://www.soundjay.com/misc/sounds/lizard-sound-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
         stats: {
             intelligence: 2,
             friendliness: 2,
@@ -108,7 +108,7 @@ const petsData = [
         id: 5,
         name: "Budgerigar",
         emoji: "🦜",
-        image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=400&h=300&fit=crop",
+        image: "assets/Budgerigar.jpg",
         description: "Budgerigars are smart and lively, can mimic human speech, and are popular pet birds.",
         longDescription: "Budgerigars originate from Australia and are one of the smallest parrot species in the world. They are intelligent and can mimic human speech and surrounding sounds. Budgerigars are lively and enjoy interacting with their owners, making them ideal companion birds.",
         difficulty: 2,
@@ -116,7 +116,7 @@ const petsData = [
         lifespan: "5-10 years",
         size: "Small bird",
         careLevel: "Moderate",
-        audioUrl: "https://www.soundjay.com/misc/sounds/parrot-sound-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
         stats: {
             intelligence: 4,
             friendliness: 4,
@@ -142,7 +142,7 @@ const petsData = [
         lifespan: "2-3 years",
         size: "Tiny",
         careLevel: "Easy",
-        audioUrl: "https://www.soundjay.com/misc/sounds/hamster-sound-1.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
         stats: {
             intelligence: 2,
             friendliness: 3,
@@ -168,7 +168,7 @@ const petsData = [
         lifespan: "15-20 years",
         size: "Medium cat",
         careLevel: "Moderate",
-        audioUrl: "https://www.soundjay.com/misc/sounds/cat-meow-2.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         stats: {
             intelligence: 5,
             friendliness: 4,
@@ -194,7 +194,7 @@ const petsData = [
         lifespan: "10-15 years",
         size: "Medium reptile",
         careLevel: "Complex",
-        audioUrl: "https://www.soundjay.com/misc/sounds/lizard-sound-2.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
         stats: {
             intelligence: 3,
             friendliness: 3,
@@ -220,7 +220,7 @@ const petsData = [
         lifespan: "5-7 years",
         size: "Small rodent",
         careLevel: "Easy",
-        audioUrl: "https://www.soundjay.com/misc/sounds/guinea-pig-sound.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
         stats: {
             intelligence: 3,
             friendliness: 5,
@@ -246,7 +246,7 @@ const petsData = [
         lifespan: "40-60 years",
         size: "Medium bird",
         careLevel: "Very Complex",
-        audioUrl: "https://www.soundjay.com/misc/sounds/parrot-sound-2.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav",
         stats: {
             intelligence: 5,
             friendliness: 4,
@@ -272,7 +272,7 @@ const petsData = [
         lifespan: "2-4 years",
         size: "Small fish",
         careLevel: "Easy",
-        audioUrl: "https://www.soundjay.com/misc/sounds/fish-bubble.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         stats: {
             intelligence: 2,
             friendliness: 1,
@@ -298,7 +298,7 @@ const petsData = [
         lifespan: "20-40 years",
         size: "Medium turtle",
         careLevel: "Complex",
-        audioUrl: "https://www.soundjay.com/misc/sounds/turtle-sound.wav",
+        audioUrl: "https://www2.cs.uic.edu/~i101/SoundFiles/gettysburg10.wav",
         stats: {
             intelligence: 2,
             friendliness: 2,
