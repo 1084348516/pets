@@ -3,8 +3,17 @@
     <!-- Homepage -->
     <url>
         <loc>https://sweetpet.fun/</loc>
-        <lastmod>2025-06-24</lastmod>
+        <lastmod>2025-01-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
+    
+    <!-- About page -->
+    <url>
+        <loc>https://sweetpet.fun/about.html</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
 </urlset> 
