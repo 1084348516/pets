@@ -1,3 +1,12 @@
+# robots.txt for relievegame.space - Bubble Pop Stress Relief Game
+
+# Allow all search engines to crawl the site
 User-agent: *
-   Allow: /
-   Sitemap: https://sweetpet.fun/sitemap.xml
+Allow: /
+
+# Sitemap location
+Sitemap: https://relievegame.space/sitemap.xml
+
+# Allow major search engines
+User-agent: Googlebot
+Allow: /
