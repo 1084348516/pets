@@ -52,6 +52,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="pets" />
@@ -85,6 +88,7 @@
       <updated>1761202618270</updated>
       <workItem from="1761202619188" duration="1425000" />
       <workItem from="1761204060049" duration="81000" />
+      <workItem from="1761204410644" duration="120000" />
     </task>
     <task id="LOCAL-00001" summary="bubble pop game，init version.">
       <option name="closed" value="true" />

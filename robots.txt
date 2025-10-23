@@ -1,21 +1,4 @@
 User-agent: *
-Allow: /
+   Allow: /
 
-# Sitemap location
-Sitemap: https://your-domain.com/sitemap.xml
-
-# Allow all pages to be crawled
-Allow: /index.html
-Allow: /about.html
-Allow: /demo.html
-Allow: /assets/
-Allow: /styles.css
-Allow: /script.js
-Allow: /data.js
-
-# Disallow any private or admin areas (if you add them later)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Crawl delay (optional - tells crawlers to wait between requests)
-Crawl-delay: 1 
+   Sitemap: https://sweetpet.fun/sitemap.xml
